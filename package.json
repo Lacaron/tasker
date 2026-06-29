@@ -1,0 +1,15 @@
+{
+  "name": "tasker-jira",
+  "version": "1.0.0",
+  "description": "Electron task manager backed by Jira (Tasker UI + jira-helper transport)",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "electron": "^28.3.3"
+  }
+}
