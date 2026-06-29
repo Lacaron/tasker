@@ -1,0 +1,8 @@
+[
+  {
+    "name": "Tasks",
+    "jql": "assignee = currentUser() AND statusCategory != Done ORDER BY duedate ASC",
+    "projectKey": "ABC",
+    "issueType": "Task"
+  }
+]

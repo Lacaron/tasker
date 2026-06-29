@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Tasks",
+    "jql": "assignee = currentUser() AND statusCategory != Done AND issuetype != Pentest ORDER BY duedate ASC",
+    "projectKey": "SDLCEDRI",
+    "issueType": "Task",
+    "showStatus": true
+  },
+  {
+    "name": "Pentest",
+    "jql": "issuetype = Pentest AND status in (\"Backlog\", \"En validation\", \"Pré-exécution\", \"Prêt\", \"En cours\", \"Post-Exécution\") ORDER BY duedate ASC",
+    "projectKey": "SDLCEDRI",
+    "issueType": "Pentest",
+    "showStatus": true,
+    "statusOrder": ["En validation", "Pré-exécution", "Prêt", "En cours", "Backlog", "Post-Exécution"]
+  }
+]

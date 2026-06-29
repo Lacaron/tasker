@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://esm.sh; style-src 'self' 'unsafe-inline'; connect-src https://esm.sh" />
+  <title>Tasker</title>
+
+  <!-- Vendored Bulma -->
+  <link rel="stylesheet" href="styles/bulma.min.css" />
+  <!-- Light theme + design tokens -->
+  <link rel="stylesheet" href="styles/theme.css" />
+
+  <!--
+    Import map: maps bare specifiers to esm.sh CDN for CodeMirror 6.
+    All @codemirror/* packages resolve consistently through esm.sh's
+    own dependency graph, so no cross-package singleton issues.
+  -->
+  <script type="importmap">
+  {
+    "imports": {
+      "@codemirror/state":        "https://esm.sh/@codemirror/state@6",
+      "@codemirror/view":         "https://esm.sh/@codemirror/view@6",
+      "@codemirror/commands":     "https://esm.sh/@codemirror/commands@6",
+      "@codemirror/language":     "https://esm.sh/@codemirror/language@6",
+      "@codemirror/lang-markdown":"https://esm.sh/@codemirror/lang-markdown@6",
+      "@lezer/highlight":         "https://esm.sh/@lezer/highlight@1",
+      "@lezer/common":            "https://esm.sh/@lezer/common@1",
+      "@lezer/markdown":          "https://esm.sh/@lezer/markdown@1",
+      "@lezer/lr":                "https://esm.sh/@lezer/lr@1"
+    }
+  }
+  </script>
+</head>
+<body>
+<div id="app">
+  <!-- Titlebar injected by titlebar.js -->
+
+  <!-- Toolbar: search + sync + settings -->
+  <div id="toolbar">
+    <input id="search-input" type="search" placeholder="Search tasks…" autocomplete="off" />
+    <button id="sync-btn" class="tk-icon-btn" title="Sync now"><span class="tk-sync-icon">⟳</span></button>
+    <button id="settings-btn" class="tk-icon-btn" title="Settings">⚙</button>
+  </div>
+
+  <!-- Section tabs (filled by app.js; hidden when only one section) -->
+  <div id="section-tabs"></div>
+
+  <!-- Task list (replaced by taskList.el in app.js); add-task row is per-section -->
+  <div id="task-list-wrap"></div>
+
+  <!-- Bottom status bar -->
+  <div id="statusbar">
+    <span id="status-sync" class="tk-status-item"></span>
+    <span id="status-count" class="tk-status-item"></span>
+  </div>
+</div>
+
+<!-- Toast area -->
+<div id="toast-area"></div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
